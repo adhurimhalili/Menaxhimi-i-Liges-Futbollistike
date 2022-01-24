@@ -1,0 +1,14 @@
+head{font-size: 15px;font-family: Arial; background-color: lightblue;}
+a{font-size: 18px;font-family: Arial; 
+  color: white; text-decoration: none; font-weight: bold;}
+h1{font-size: 18px;font-family: Arial; color: rgb(199, 199, 199);}
+h2{font-size: 20px;font-family: arial; color: white;}
+h3{font-family: arial; color: white;}
+h4{font-size: 15px;font-family: arial; color: white;}
+p{font-size: 20px;font-family: arial; color: white;}
+
+body {
+    background-image: url('foto/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
