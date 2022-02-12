@@ -31,6 +31,7 @@
                 <a href='addadmin.php'>Add Admin</a><br>
                 <a href='messages.php'>Read Messages</a><br>
                 <a href='addproduct.php'>Add Product</a><br>
+                <a href='productstable.php'>Products Table</a><br>
                 <a href='addnews.php'>Add News</a><br>
                 <a href='newstable.php'>News Table</a><br>
                 <a href='addresults.php'>Add Result</a><br>
