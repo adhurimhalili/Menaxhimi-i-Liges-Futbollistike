@@ -7,25 +7,15 @@
 
     <link rel="stylesheet" href="store.css">
 
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
+</head>
 
-<body> 
+<body>
         
-    <div align ="right" style="justify-content: right; width: 100%; float: right; background-color: rgb(9, 43, 153); border: 1px solid rgb(4, 62, 255);">
+<?php include 'partials/header.php'; ?>
 
-        <div style="float: left;"><a href="html.html"><img src="foto/Logo 5.png"; style="height: 40px; margin-left: 5px; margin-top: 5px;"></a> 
-        </div>
-
-        <nav align ="right" style="justify-content: space-around; display: flex; width: 40%; float: right;">
-            
- 
-            <div style="margin-top: 14px;"><a href="store.html" class="login-button">Store</a></div>
-            <div style="margin-top: 14px;"><a href="about.html" class="login-button">About Us</a></div>
-            <div style="margin-top: 14px;"><a href="login.html" class="login-button">Log In</a></div>
-        </nav>    
-    </div>
 <script type="text/javascript">(function(){window['__CF$cv$params']=
-{r:'6db65526fcf77ca6',m:'eBGuBH_DhAKybaplGXTdl2LoQxRmMZ9Z4dbiDJH.GME-1644506543-0-ASgBGx2g/BjNupCJuPb74sEzPzOnRWQEDncK98aRaOwfz8WbbRu9T6PJk75edxGFU/zdi4P2PkDXaSMi/TrJb5Mw5MAkeZMMvtPue6Qgk2G+Cr0lrjUDNZMHSPwq1VoqzXsVtASmA+kdVM9eLSuceSRzWcUEOiXinmbK6jOCbOPYJ0uyXs2imT7lFf8TqAQc/Q==',s:[0x9bdf9da339,0xfa3422dcd1],}})();</script></body>
+{r:'6db65526fcf77ca6',m:'eBGuBH_DhAKybaplGXTdl2LoQxRmMZ9Z4dbiDJH.GME-1644506543-0-ASgBGx2g/BjNupCJuPb74sEzPzOnRWQEDncK98aRaOwfz8WbbRu9T6PJk75edxGFU/zdi4P2PkDXaSMi/TrJb5Mw5MAkeZMMvtPue6Qgk2G+Cr0lrjUDNZMHSPwq1VoqzXsVtASmA+kdVM9eLSuceSRzWcUEOiXinmbK6jOCbOPYJ0uyXs2imT7lFf8TqAQc/Q==',s:[0x9bdf9da339,0xfa3422dcd1],}})();</script>
 
 
     <!-- SLAJDERI -->

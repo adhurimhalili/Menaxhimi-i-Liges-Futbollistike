@@ -9,6 +9,7 @@
 <?php if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0): ?>
   <div style="margin-top: 14px;"><a href="store.php" class="login-button">Store</a></div>
     <div style="margin-top: 14px;"><a href="about.php" class="login-button">About Us</a></div>
+    <div style="margin-top: 14px;"><a href="contact.php" class="login-button">Contact</a></div>
   <?php endif;?>
     <?php if(!isset($_SESSION['name'])): ?>
     <div style="margin-top: 14px;"><a href="login.php" class="login-button">Sign In</a></div>
