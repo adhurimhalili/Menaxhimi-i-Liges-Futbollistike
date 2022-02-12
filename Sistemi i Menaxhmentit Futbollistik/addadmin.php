@@ -1,8 +1,9 @@
 <?php include 'partials/header.php'; ?>
 <?php
-        if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
+        if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==0) {
         header('Location: ./index.php');
     }
+    include 'dbconnect.php';
 ?>
 <?php include 'dbconnect.php' ?>
 

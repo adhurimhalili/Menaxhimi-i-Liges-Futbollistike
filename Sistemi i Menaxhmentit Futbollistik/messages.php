@@ -40,6 +40,7 @@ td h3{
     <link rel="icon" href="foto/Logo 4.png">
 
 </head>
+<?php include 'partials/header.php'; ?>
 <div id="emails">
     <h1>Mesazhet</h1>
   <?php

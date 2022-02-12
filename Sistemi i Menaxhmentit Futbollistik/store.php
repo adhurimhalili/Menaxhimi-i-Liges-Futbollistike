@@ -22,36 +22,26 @@
 <div class="slideshow-container">
 
     <!-- FOTOT -->
-    <div class="mySlides fade">
-      
-      <img src="foto/ball 1.jpg" style="width: 500px; border-radius: 3%;">
-      <div class="text">Produkti 1</div>
-    </div>
-  
-    <div class="mySlides fade">
-      
-      <img src="foto/ball 2.jpg" style="width: 500px; border-radius: 3%;">
-      <div class="text">Produkti 2</div>
-    </div>
-  
-    <div class="mySlides fade">
-      
-      <img src="foto/ball 3.jpg" style="width: 500px; border-radius: 3%;">
-      <div class="text">Produkti 3</div>
-    </div>
+    <?php
+      include "dbconnect.php";
+      $select = $pdo->prepare("SELECT * FROM products ");
+      $select->setFetchMode(PDO::FETCH_ASSOC);
+      $select->execute();
+      while($data=$select->fetch()){
+      ?>
+      <div class="mySlides fade">
+      <img src="images/<?php echo $data['image']; ?>" style="width: 500px; border-radius: 3%;">
+      <div class="text"><?php echo $data['emri']; ?></div>
+      </div>
+      <?php
+      }?>
   
     <!-- BUTONAT -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
   <br>
-  
-  <!-- PIKAT -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
+
 
   <script>
     var slideIndex = 1;

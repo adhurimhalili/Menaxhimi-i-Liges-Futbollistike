@@ -23,7 +23,8 @@
             style="width: 25%; justify-content: center; background-color: rgb(9, 43, 153); border: 1px solid rgb(4, 62, 255); margin-top:20px;">
             <h2>Tools</h2>  
                 <a href='addadmin.php'>Add Admin</a><br>
-                <a href='messages.php'>Read Messages</a>
+                <a href='messages.php'>Read Messages</a><br>
+                <a href='addproduct.php'>Add Product</a><br>
             </div>                      
         </div>
 </div>
