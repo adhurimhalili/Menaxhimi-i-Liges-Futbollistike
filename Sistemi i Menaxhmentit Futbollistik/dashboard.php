@@ -25,6 +25,7 @@
                 <a href='addadmin.php'>Add Admin</a><br>
                 <a href='messages.php'>Read Messages</a><br>
                 <a href='addproduct.php'>Add Product</a><br>
+                <a href='addnews.php'>Add News</a><br>
             </div>                      
         </div>
 </div>
