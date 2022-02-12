@@ -35,6 +35,7 @@
                 <a href='addnews.php'>Add News</a><br>
                 <a href='newstable.php'>News Table</a><br>
                 <a href='addresults.php'>Add Result</a><br>
+                <a href='resultstable.php'>Results Table</a><br>
             </div>                      
         </div>
 </div>
