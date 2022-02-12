@@ -2,7 +2,7 @@
 
 <div align ="right" style="justify-content: right; width: 100%; float: right; background-color: rgb(9, 43, 153); border: 1px solid rgb(4, 62, 255);">
 
-<div style="float: left;"><a href="html.html"><img src="foto/Logo 5.png"; style="height: 40px; margin-left: 5px; margin-top: 5px;"></a> 
+<div style="float: left;"><a href="index.php"><img src="foto/Logo 5.png"; style="height: 40px; margin-left: 5px; margin-top: 5px;"></a> 
 </div>
 
 <nav align ="right" style="justify-content: space-around; display: flex; width: 40%; float: right;">

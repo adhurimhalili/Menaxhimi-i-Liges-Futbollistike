@@ -9,7 +9,6 @@
         if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==0) {
         header('Location: ./index.php');
     }
-    include 'dbconnect.php';
 ?>
 
 <?php 
@@ -20,50 +19,23 @@ if(isset($_POST['ok']))
 
 { 
 
-$folder ="images/"; 
-
-$image = $_FILES['image']['name']; 
-
-$path = $folder . $image ; 
-
-$target_file=$folder.basename($_FILES["image"]["name"]);
-
-
-$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
-
-
-$allowed=array('jpeg','png' ,'jpg'); $filename=$_FILES['image']['name']; 
-
-$ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
-
-{ 
-
- echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-
-}
-
-else{ 
-
-move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
-
-$sth=$pdo->prepare("insert into news(title,image,description,autori)values(:title,:image,:description,:autori) "); 
+$sth = $pdo->prepare("UPDATE news SET title = :title, description = :description WHERE id = :id");
 
 $sth->bindParam(':title', $_POST['title']); 
-$sth->bindParam(':image',$image); 
+$sth->bindParam(':id', $_GET['id']);
 $sth->bindParam(':description', $_POST['description']); 
-$sth->bindParam(':autori', $_POST['autori']); 
 $sth->execute(); 
+header("Location: ./newstable.php");
 
 } 
 
-} 
 
 ?> 
 
 
 <!DOCTYPE html>
 <html>
-<title>Add Product | EU Super League</title>
+<title>Edit News | EU Super League</title>
 <head>
 	
 	<link rel="stylesheet" type="text/css" href="loginstyle.css">
@@ -92,11 +64,18 @@ $sth->execute();
                 <img src="foto/Logo 4.png" width="100px" style="margin-top: 40px; margin-bottom: 50px;">
                 <br>
                 <form method="POST" enctype="multipart/form-data"> 
-
-                <input type="file" name="image" style="margin-bottom:15px" required/> 
-                <input type="text" name="title" placeholder="Title"/> <br><br>
-                <textarea  name="description" placeholder="NEWS DESCRIPTION" rows="5"></textarea>
-                <input type="hidden" name="autori" value="<?php echo $_SESSION['name'] ?> <?php echo $_SESSION['surname'] ?>"/>
+                <?php
+        include "dbconnect.php";
+        $id=$_GET['id'];
+        $select = $pdo->prepare("SELECT * FROM news where id=$id");
+        $select->setFetchMode(PDO::FETCH_ASSOC);
+        $select->execute();
+        while($data=$select->fetch()){
+        ?>
+                <input type="text" value="<?php echo $data['title'];?>" name="title" placeholder="Title"/> <br><br>
+                <textarea name="description" placeholder="NEWS DESCRIPTION" rows="5"><?php echo $data['description'];?></textarea>
+                <?php
+        }?>
                 <input type="submit" name="ok" class="login-btn"/> <br><br>
 
                 </form>

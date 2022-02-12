@@ -1,3 +1,11 @@
+
+<?php  include 'partials/header.php' ?>
+<?php
+        if(!isset($_SESSION['name'])) {
+        header('Location: ./index.php');
+    }
+?>
+
 <?php
         if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==0) {
         header('Location: ./index.php');
@@ -66,7 +74,6 @@ $sth->execute();
 
 <body style="height: 100vh;">  
 
-<?php  include 'partials/header.php' ?>
 
 
 <div style="height: 100vh;">  

@@ -1,5 +1,5 @@
-
 <?php include 'partials/header.php'; ?>
+
 
 <?php
         if(!isset($_SESSION['name'])) {
@@ -42,7 +42,7 @@ td h3{
 </style>
 <!DOCTYPE html>
 <html>
-<title>Messages | EU Super League</title>
+<title>News Table | EU Super League</title>
 <head>
 	
 	<link rel="stylesheet" type="text/css" href="loginstyle.css">
@@ -50,22 +50,19 @@ td h3{
 
 </head>
 <div id="emails">
-    <h1>Mesazhet</h1>
+    <h1>News</h1>
   <?php
-  $sql = $pdo->prepare("SELECT * FROM mails " );
+  $sql = $pdo->prepare("SELECT * FROM news " );
   $sql->execute();
   echo"<table>";
   echo"<th>";
-  echo"<h3> Emri </h3>";
+  echo"<h3> Titulli </h3>";
   echo"</th>";
   echo"<th>";
-  echo"<h3> Mbiemri </h3>";
+  echo"<h3> Autori </h3>";
   echo"</th>";
   echo"<th>";
-  echo"<h3> Emaili </h3>";
-  echo"</th>";
-  echo"<th>";
-  echo"<h3> Mesazhi </h3>";
+  echo"<h3> Edito</h3>";
   echo"</th>";
   echo"<th>";
   echo"<h3> Fshije </h3>";
@@ -74,20 +71,16 @@ td h3{
 
     echo"<tr>";
     echo"<td>";
-  echo"<h3> ".$row['name']." </h1> ";
+  echo"<h3> ".$row['title']." </h3> ";
   echo"</td>";
     echo"<td>";
-  echo"<h3> ".$row['surname']." </h1> ";
+  echo"<h3> ".$row['autori']." </h3> ";
   echo"</td>";
   echo"<td>";
-  echo"<h3> ".$row['email']." </h1> ";
+  echo"<a href=editnews.php?id=".$row['id'].">✏️</a>";
   echo"</td>";
-  echo"<td id='teksti'>";
-  echo"<h3 id='teksti'> ".$row['text']." </h1> ";
-  echo"</td>";
-
   echo"<td>";
-  echo"<h4><a href='deletemessage.php?id=".$row['id']."'>🗑️</a></h4>";
+  echo"<h4><a href='deletenews.php?id=".$row['id']."'>🗑️</a></h4>";
   echo"</td>";
   echo"</tr>";
 

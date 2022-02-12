@@ -1,3 +1,9 @@
+<?php  include 'partials/header.php' ?>
+<?php
+        if(!isset($_SESSION['name'])) {
+        header('Location: ./index.php');
+    }
+?>
 <?php
         if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==0) {
         header('Location: ./index.php');
@@ -16,7 +22,7 @@
 
 <body style="height: 100vh;">  
 
-<?php  include 'partials/header.php' ?>
+
 
         <div style="width: 100%; display: flex; justify-content: space-between; height: 85%;">
             <div align ="center" 
@@ -26,6 +32,8 @@
                 <a href='messages.php'>Read Messages</a><br>
                 <a href='addproduct.php'>Add Product</a><br>
                 <a href='addnews.php'>Add News</a><br>
+                <a href='newstable.php'>News Table</a><br>
+                <a href='addresults.php'>Add Result</a><br>
             </div>                      
         </div>
 </div>
