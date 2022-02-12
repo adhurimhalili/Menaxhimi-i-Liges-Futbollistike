@@ -1,3 +1,39 @@
+
+<?php
+        if(isset($_SESSION['id'])) {
+        header('Location: ./index.php');
+    }
+?>
+<?php include 'dbconnect.php'; ?>
+<?php
+    if(isset($_POST['submitted'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $query = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+        $query->bindParam(':email', $email);
+        $query->execute();
+
+        $user = $query->fetch();
+
+        if(is_array($user)&&count($user) > 0 && password_verify($password, $user['password'])) {
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['name'] = $user['name'];
+            $_SESSION['surname'] = $user['surname'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['adresa'] = $user['adresa'];
+            $_SESSION['is_admin'] = $user['is_admin'];
+            $roli=$user['is_admin'];
+            if($roli==='1'){
+                  header('Location: ./admin.php');
+            }
+            elseif($roli==='0'){  header('Location: ./index.php');}
+        }else {
+              echo "<h4 id='gabim'> Wrong email or password </h4> ";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Log-In | EU Super League</title>
@@ -9,7 +45,7 @@
 </head>
 
 
-<body style="height: 100vh;">  
+<div style="height: 100vh;">  
 
     <div align ="right" style="justify-content: right; width: 100%; float: right; background-color: rgb(9, 43, 153); border: 1px solid rgb(4, 62, 255);">
 
@@ -36,16 +72,12 @@
      		
                 <img src="foto/Logo 4.png" width="100px" style="margin-top: 40px; margin-bottom: 50px;">
                 <br>
-        	    <input type="name" placeholder="Username" id="login-username" style="margin-bottom: 10px;">
-                <p class="validation" id="login-username-valid" style="margin-top: -5px;"></p>
+                <form action="" method="POST">
 
-        	    <input type="password" placeholder="Password" id="login-password" style="margin-bottom: 20px;">
-                <p class="validation" id="login-password-valid" style="margin-top: -15px;"></p>
-     		
-                <button type="submit" name="submit" class="login-btn" onclick="loginValidation()">Log in</button>
-                <br>
-                <div><input type="checkbox" class="Remember-me">Remember me<br></div> 
-
+            <input id="email" type="email" placeholder="Enter your email" name="email" required style="margin-bottom: 10px;"><br>
+            <input type="password" placeholder="Enter your password" name="password" required style="margin-bottom: 20px;"><br>
+            <input type="submit" name="submitted" value="LOG IN"  class="login-btn">
+                </form>
             </fieldset>
             
         </div>
@@ -54,10 +86,4 @@
      		
     </div>
 
-        <script src="login.js"></script>
 
-</body>
-</html>
-
-</body>
-</html>
