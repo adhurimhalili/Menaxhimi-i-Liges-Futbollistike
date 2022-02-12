@@ -1,4 +1,9 @@
-
+<?php include 'partials/header.php'; ?>
+<?php
+        if(isset($_SESSION['id'])) {
+        header('Location: ./index.php');
+    }
+?>
 <?php include 'dbconnect.php' ?>
 
 
@@ -6,7 +11,6 @@
 
     if(isset($_POST['submitted'])) {
 
-        isset($_POST['is_admin']) ? $isAdmin = 1 : $isAdmin = 0;
         $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
 
         $stmt = $pdo->prepare('SELECT COUNT(email) AS EmailCount FROM users WHERE email = :email');
@@ -36,13 +40,12 @@
         }
         else{
         if ($result['EmailCount'] == 0) {
-        $query = $pdo->prepare('INSERT INTO users (name,surname, email,adresa,password, is_admin) VALUES (:name,:surname,LOWER(:email),UPPER(:adresa), :password, :is_admin)');
+        $query = $pdo->prepare('INSERT INTO users (name,surname, email,adresa,password, is_admin) VALUES (:name,:surname,LOWER(:email),UPPER(:adresa), :password, 0)');
         $query->bindParam(':name', $_POST['name']);
         $query->bindParam(':surname', $_POST['surname']);
         $query->bindParam(':email', $_POST['email']);
         $query->bindParam(':adresa', $_POST['adresa']);
         $query->bindParam(':password', $password);
-        $query->bindParam(':is_admin', $isAdmin);
         $query->execute();
         header('Location: index.php');
       }
@@ -52,25 +55,40 @@
 }
 ?>
 
-<title> SIGN UP </title>
-<link rel="stylesheet" href="css/login.css">
-<img id="banner" src="img/bannerls.png">
-<div id="container">
-  <div id="katrori2">
-        <form  id="format" action="" method="POST">
-            <label for="name">Emri</label><br>
-            <input type="text" placeholder="Enter your name" name="name" required><br>
-            <label for="surname">Mbiemri</label><br>
-            <input type="text" placeholder="Enter your surname" name="surname" required><br>
-            <label for="surname">Adresa</label><br>
-            <input type="text" placeholder="Enter your address" name="adresa" required><br>
-            <label for="email">Email</label><br>
-            <input id="email" type="email" placeholder="Enter your email" name="email" required><br>
-            <label for="password">Password</label><br>
-            <input type="password" placeholder="Enter your pass" name="password" required><br>
-            <input id="admin"type="checkbox" name="is_admin">ADMIN<br>
-            <input id="signupi"type="submit" name="submitted" value="SIGN UP">
-        </form>
-      </div>
+<!DOCTYPE html>
+<html>
+<title>Sign-Up | EU Super League</title>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="loginstyle.css">
+    <link rel="icon" href="foto/Logo 4.png">
 
+</head>
+
+
+<div style="height: 100vh;">      
+
+    <div style="height: 27%;">
+
+    </div>
+    <div style="height: 38%; ">
+    	<div align ="center">     			
+ 			<fieldset class="border">
+     		
+                <img src="foto/Logo 4.png" width="100px" style="margin-top: 40px; margin-bottom: 50px;">
+                <br>
+                <form action="" method="POST">
+            <input type="text" placeholder="Enter your name" name="name" required style="margin-bottom: 10px;"><br>
+            <input type="text" placeholder="Enter your surname" name="surname" required style="margin-bottom: 10px;"><br>
+            <input type="text" placeholder="Enter your address" name="adresa" required style="margin-bottom: 10px;"><br>
+            <input id="email" type="email" placeholder="Enter your email" name="email" required style="margin-bottom: 10px;"><br>
+            <input type="password" placeholder="Enter your pass" name="password" required style="margin-bottom: 10px;"><br>
+            <input type="submit" name="submitted" value="LOG IN"  class="login-btn">
+                </form>
+            </fieldset>
+            
+        </div>
+           
+           
+     		
     </div>

@@ -1,4 +1,4 @@
-
+<?php include 'partials/header.php'; ?>
 <?php
         if(isset($_SESSION['id'])) {
         header('Location: ./index.php');
@@ -25,7 +25,7 @@
             $_SESSION['is_admin'] = $user['is_admin'];
             $roli=$user['is_admin'];
             if($roli==='1'){
-                  header('Location: ./admin.php');
+                  header('Location: ./dashboard.php');
             }
             elseif($roli==='0'){  header('Location: ./index.php');}
         }else {
@@ -47,21 +47,7 @@
 
 <div style="height: 100vh;">  
 
-    <div align ="right" style="justify-content: right; width: 100%; float: right; background-color: rgb(9, 43, 153); border: 1px solid rgb(4, 62, 255);">
 
-        <div style="float: left;"><a href="html.html"><img src="foto/Logo 5.png"; style="height: 40px; margin-left: 5px; margin-top: 5px;"></a> 
-        </div>
-
-        <nav align ="right" style="justify-content: space-around; display: flex; width: 40%; float: right;">
-
-            <div style="margin-top: 14px;"><a href="store.html" class="login-button">Store</a></div>
-            <div style="margin-top: 14px;"><a href="about.html" class="login-button">About Us</a></div>
-            <div style="margin-top: 14px;"><a href="login.html" class="login-button">Log In</a></div>
-        </nav>
-
-
-    </div>
-    
 
     <div style="height: 27%;">
 
