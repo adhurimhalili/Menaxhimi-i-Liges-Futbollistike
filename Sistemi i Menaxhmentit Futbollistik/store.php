@@ -1,3 +1,10 @@
+<?php include 'partials/header.php'; ?>
+<?php
+        if(!isset($_SESSION['id'])) {
+        header('Location: ./index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <title>Store | EU Super League</title>
@@ -11,8 +18,6 @@
 </head>
 
 <body>
-        
-<?php include 'partials/header.php'; ?>
 
 <script type="text/javascript">(function(){window['__CF$cv$params']=
 {r:'6db65526fcf77ca6',m:'eBGuBH_DhAKybaplGXTdl2LoQxRmMZ9Z4dbiDJH.GME-1644506543-0-ASgBGx2g/BjNupCJuPb74sEzPzOnRWQEDncK98aRaOwfz8WbbRu9T6PJk75edxGFU/zdi4P2PkDXaSMi/TrJb5Mw5MAkeZMMvtPue6Qgk2G+Cr0lrjUDNZMHSPwq1VoqzXsVtASmA+kdVM9eLSuceSRzWcUEOiXinmbK6jOCbOPYJ0uyXs2imT7lFf8TqAQc/Q==',s:[0x9bdf9da339,0xfa3422dcd1],}})();</script>
